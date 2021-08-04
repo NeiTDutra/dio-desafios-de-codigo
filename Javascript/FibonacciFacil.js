@@ -13,7 +13,7 @@ Os valores devem ser mostrados na mesma linha, separados por um espaço em branc
 
 */
 
-let N = 6; //parseInt(gets());
+let N = 33; //parseInt(gets());
 let calc = [];
 let res = [];
 
@@ -23,13 +23,33 @@ for ( let i = 0; i < N; i ++ ) {
         calc[i] = i;
     }
     else {
-        calc[i] = calc[i - 2] + calc[i - 1];
+        calc[i] = res[i - 2] + res[i - 1];
     }
-    
-    res += calc[i];
+    res.push(calc[i]);
 }
-res = res.split("").join(" ");
+res = res.join(" ");
 console.log(typeof(res));
 console.log(res);
+/*
+// codigo do desafio na dio incompleto
 
+let input = 33;//gets();
+
+const fib = n => {
+  if (            ) {
+    return [0, 1];
+  } 
+  else {
+    const s = fib(         );
+    s.push(s[s.length - 1] + s[s.length - 2]);
+    return s;
+  }
+};
+
+const index = Number(lines.shift()) - 1;
+
+const sequence = fib(index).join(" ");
+
+console.log(sequence);
+*/
 
