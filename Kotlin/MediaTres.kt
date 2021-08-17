@@ -20,14 +20,17 @@ import java.util.*
 fun main(args: Array<String>) {
 
     val entrada = Scanner(System.`in`)
-    val n1 = entrada.nextFloat()
-    val n2 = entrada.nextFloat()
-    val n3 = entrada.nextFloat()
-    val n4 = entrada.nextFloat()
-
-    var media = ((n1 * 2) + (n2 * 3) + (n3 * 4) + n4) / 10
     
-    println("Media: ${"%.1f".format(media)}")
+    val df = DecimalFormat("0.0")
+    
+    val n1: Double = entrada.nextDouble()
+    val n2: Double = entrada.nextDouble()
+    val n3: Double = entrada.nextDouble()
+    val n4: Double = entrada.nextDouble()
+
+    var media: Double = ((n1 * 2) + (n2 * 3) + (n3 * 4) + n4) / 10
+    
+    println("Media: ${df.format(media)}")
     
     if (media > 7) {
     
@@ -39,8 +42,8 @@ fun main(args: Array<String>) {
     
         println("Aluno em exame.")
         
-        val exame = entrada.nextFloat()
-        println("Nota do exame: ${"%.1f".format(exame)}")
+        val exame: Double = entrada.nextDouble()
+        println("Nota do exame: ${df.format(exame)}")
         
         media = (media + exame) / 2
         
@@ -51,7 +54,7 @@ fun main(args: Array<String>) {
         
             println("Aluno reprovado")
         }
-        println("Media final: ${"%.1f".format(media)}")
+        println("Media final: ${df.format(media)}")
     }
     else {
     
