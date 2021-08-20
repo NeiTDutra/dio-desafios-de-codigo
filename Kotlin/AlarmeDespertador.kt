@@ -23,10 +23,15 @@ import kotlin.math.abs
 
 fun main() {
     
-    var input : List<Int>
+    var input : List<String>
+    var res: MutableList<Int> = arrayListOf()
     var min : Int
     var x: Int
     var y: Int
+    var h1: Int
+    var m1: Int
+    var h2: Int
+    var m2: Int
     var t: Boolean = true
     var d = listOf(
             "0 5 1 10",
@@ -51,17 +56,27 @@ fun main() {
         
         for(i: String in d) {
        
-            input = i.split(" ").map { it.toInt() } // readLine()!!.split(" ").map { it.toInt() }
-            
-            val (h1, m1, h2, m2 ) = input
+            input = i.split(" ")
+        
+            h1 = input.component1().toInt()
+            m1 = input.component2().toInt()
+            h2 = input.component3().toInt()
+            m2 = input.component4().toInt()
             
             var sum: Int = h1 + m1 + h2 + m2
         
-            if (sum == 0) { 
+            if (sum != 0) { 
+        
+                x = if (h1 == 0) (24 * 60) + m1 else (h1 * 60) + m1 
+                y = if (h2 == 0) (24 * 60) + m2 else (h2 * 60) + m2
+                
+                min = if (y > x) y - x else (24 * 60) - (x - y) 
+                
+                res.add(min)
             
-                t = false
             }
-            else if (input.isEmpty() ) {
+            
+            if (readLine() == null && sum != 0) {
             
                 println("Sorry! Output limit exceeded!")
                 
@@ -69,12 +84,12 @@ fun main() {
             }
             else {
             
-                x = if (h1 == 0) (24 * 60) + m1 else (h1 * 60) + m1 
-                y = if (h2 == 0) (24 * 60) + m2 else (h2 * 60) + m2
-                
-                min = if (y > x) y - x else (24 * 60) - (x - y) 
-                
-                println(min)
+                for (l in res) {
+                  
+                    println(l)
+                }
+            
+                t = false
             }
         }
     }
