@@ -12,7 +12,12 @@ O primeiro valor de saída é a quantidade de valores positivos. A próxima linh
 
 */
 
-var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var input = `1
+-2
+3
+-4
+5
+8`;// require('fs').readFileSync('/dev/stdin', 'utf8');
 var lines = input.split('\n');
 
 let positives = [];
@@ -23,7 +28,7 @@ for (let i = 0; i < 6 ; i++) {
   
   let entrada = Number(lines.shift());
 	
-  if ( entrada > 0.0 ) {
+  if ( entrada > 0 ) {
     
     positives.push(entrada);
     qPositivos ++;
