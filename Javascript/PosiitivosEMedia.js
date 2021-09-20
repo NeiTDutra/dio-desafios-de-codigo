@@ -44,3 +44,37 @@ let average = somaPositivos / qPositivos;
 
 console.log( qPositivos+ " valores positivos");
 console.log(average.toFixed(1));
+
+// Solução em ()
+
+var pos = 0;
+var media = 0;
+var total = 0;
+
+for(var i = 0; i < 6; i++){
+
+ var valor = parseFloat(gets());
+
+ if(valor > 0){
+
+   pos++;
+   total= total+valor
+
+ }
+
+}
+
+media = (total/pos).toFixed(2);
+console.log(pos + " valores positivos");
+console.log(media[0]+"."+arredonda(media[2],media[3]));
+
+function arredonda(num,numFatorArredondamento) {
+
+ if(numFatorArredondamento > 5) {
+
+   return parseInt(num)+1;//vai dar mais um ao numero da frente
+ }
+
+   return num;//vai ficar com o mesmo numero
+}
+
